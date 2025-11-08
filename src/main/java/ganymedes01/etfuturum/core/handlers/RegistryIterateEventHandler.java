@@ -2,6 +2,8 @@ package ganymedes01.etfuturum.core.handlers;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import ganymedes01.etfuturum.client.sound.BlockSoundRegisterHelper;
+import ganymedes01.etfuturum.compat.CompatIronChests;
+import ganymedes01.etfuturum.compat.ModsList;
 import ganymedes01.etfuturum.configuration.configs.ConfigSounds;
 import ganymedes01.etfuturum.recipes.ModTagging;
 import roadhog360.hogutils.api.event.BlockItemIterateEvent;
@@ -21,5 +23,12 @@ public class RegistryIterateEventHandler {
 	@SubscribeEvent
 	public void initIterateBlock(BlockItemIterateEvent.ItemRegister.Init event) {
 		ModTagging.registerItemTagsDynamic(event.objToRegister);
+	}
+
+	@SubscribeEvent
+	public void initIterateItem(BlockItemIterateEvent.ItemRegister.Init event) {
+		if(ModsList.IRON_CHEST.isLoaded()) {
+			CompatIronChests.registerUpgradeToMap(event.objToRegister);
+		}
 	}
 }

@@ -1,6 +1,5 @@
 package ganymedes01.etfuturum.client.gui.inventory;
 
-import cpw.mods.ironchest.client.GUIChest;
 import ganymedes01.etfuturum.inventory.ContainerChestGeneric;
 import ganymedes01.etfuturum.tileentities.TileEntityBarrel;
 import ganymedes01.etfuturum.tileentities.TileEntityBarrel.BarrelType;
@@ -45,7 +44,7 @@ public class GuiBarrel extends GuiContainer {
 	 */
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		if (type == BarrelType.VANILLA) {
+		if (type == BarrelType.WOOD) {
 			this.fontRendererObj.drawString(this.lowerChestInventory.hasCustomInventoryName() ? this.lowerChestInventory.getInventoryName() : I18n.format(this.lowerChestInventory.getInventoryName()), 8, 6, 4210752);
 			this.fontRendererObj.drawString(this.upperChestInventory.hasCustomInventoryName() ? this.upperChestInventory.getInventoryName() : I18n.format(this.upperChestInventory.getInventoryName()), 8, this.ySize - 96 + 2, 4210752);
 		}
@@ -69,7 +68,7 @@ public class GuiBarrel extends GuiContainer {
 			return;
 		}
 
-		if (type == BarrelType.VANILLA) {
+		if (type == BarrelType.WOOD) {
 			this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.inventoryRows * 18 + 17);
 			this.drawTexturedModalRect(k, l + this.inventoryRows * 18 + 17, 0, 126, this.xSize, 96);
 		} else {
